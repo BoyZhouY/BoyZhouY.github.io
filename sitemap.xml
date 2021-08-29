@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.netfdiary.com/2021/08/29/ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
+    <loc>https://www.netfdiary.com/2021/08/27/hello-world/</loc>
     
     <lastmod>2021-08-29</lastmod>
     
@@ -36,13 +36,6 @@
     
   </url>
   
-  <url>
-    <loc>https://www.netfdiary.com/2021/08/26/hello-world/</loc>
-    
-    <lastmod>2021-08-26</lastmod>
-    
-  </url>
-  
 
   <url>
     <loc>https://www.netfdiary.com/</loc>
@@ -52,27 +45,6 @@
   </url>
 
   
-  <url>
-    <loc>https://www.netfdiary.com/tags/ArrayList/</loc>
-    <lastmod>2021-08-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.netfdiary.com/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2021-08-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
-  
-  <url>
-    <loc>https://www.netfdiary.com/categories/JAVA/</loc>
-    <lastmod>2021-08-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
   
 </urlset>
