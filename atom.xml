@@ -6,7 +6,7 @@
   <link href="https://www.netfdiary.com/atom.xml" rel="self"/>
   
   <link href="https://www.netfdiary.com/"/>
-  <updated>2021-09-02T15:44:27.478Z</updated>
+  <updated>2021-09-11T03:00:59.765Z</updated>
   <id>https://www.netfdiary.com/</id>
   
   <author>
@@ -17,9 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ReactNative修改项目名称</title>
+    <link href="https://www.netfdiary.com/posts/9449c48d.html"/>
+    <id>https://www.netfdiary.com/posts/9449c48d.html</id>
+    <published>2021-09-11T02:50:57.000Z</published>
+    <updated>2021-09-11T03:00:59.765Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="修改项目名称"><a href="#修改项目名称" class="headerlink" title="修改项目名称"></a>修改项目名称</h2><blockquote><p>只针对安卓</p></blockquote><p>作为演示，将名为<code>DvaReactNativeDemo</code>的项目修改为<code>PDAAndroidControl</code>。</p><ol><li><p>修改文件名称为想要的项目名称</p></li><li><p>修改<code>app.json</code>文件，将<code>name</code>修改为项目名称</p> <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;PDAAndroidControl&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;displayName&quot;</span>: <span class="string">&quot;PDA&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>修改<code>android\settings.gradle</code>文件中的<code>rootProject.name</code>属性，修改为项目名称</p> <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">rootProject.name</span> = <span class="string">&#x27;PDAAndroidControl&#x27;</span></span><br></pre></td></tr></table></figure></li><li><p>修改<code>android\app\src\main\AndroidManifest.xml</code>文件，将其中的<code>package</code>修改为和项目名称相同的小写。</p> <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">package</span>=<span class="string">&quot;com.pdaandroidcontrol&quot;</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>修改包名，将包名修改为<code>com.pdaandroidcontrol</code></p></li><li><p>修改文件中引用的包名，以下作为示例，其他文件一样的操作。</p> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.pdaandroidcontrol;</span><br></pre></td></tr></table></figure></li><li><p>修改<code>MainActivity.java</code>文件中的<code>getMainComponentName</code>方法返回值，返回值和项目名称一样。</p> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> String <span class="title">getMainComponentName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;PDAAndroidControl&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>修改<code>android\app\BUCK</code>文件，找到<code>android_build_config</code>和<code>android_resource</code>，修改和包名一致，如下：</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android_build_config(</span><br><span class="line">    name = <span class="string">&quot;build_config&quot;</span>,</span><br><span class="line">    package = <span class="string">&quot;com.pdaandroidcontrol&quot;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">android_resource(</span><br><span class="line">    name = <span class="string">&quot;res&quot;</span>,</span><br><span class="line">    package = <span class="string">&quot;com.pdaandroidcontrol&quot;</span>,</span><br><span class="line">    res = <span class="string">&quot;src/main/res&quot;</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li><li><p>修改<code>android\app\build.gradle</code>文件，找到<code>defaultConfig</code>，修改<code>applicationId</code>和包名一致：</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">defaultConfig &#123;</span><br><span class="line">    applicationId <span class="string">&quot;com.pdaandroidcontrol&quot;</span></span><br><span class="line">    minSdkVersion rootProject.ext.minSdkVersion</span><br><span class="line">    targetSdkVersion rootProject.ext.targetSdkVersion</span><br><span class="line">    versionCode 1</span><br><span class="line">    versionName <span class="string">&quot;1.0&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol><p>至此，修改完毕，重新<code>npm install</code>，然后<code>yarn run android</code>就能启动项目了。</p><h2 id="可能的问题"><a href="#可能的问题" class="headerlink" title="可能的问题"></a>可能的问题</h2><p>Q：Invariant Violation:Application 项目名 has not been registered</p><p>A：上述步骤项目名称没改全。</p><p>Q：Metro (the local dev server) is run from the wrong folder</p><p>A：核对你的<code>Metro</code>（启动器）是否在当前目录启动。</p><p>Q：A module failed to load due to an error and <code>AppRegistry.registerComponent</code> wasn’t called</p><p>A：核对你的<code>app.json</code>是否修改正确。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;修改项目名称&quot;&gt;&lt;a href=&quot;#修改项目名称&quot; class=&quot;headerlink&quot; title=&quot;修改项目名称&quot;&gt;&lt;/a&gt;修改项目名称&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;只针对安卓&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作为演示，将名为&lt;code&gt;</summary>
+      
+    
+    
+    
+    <category term="前端" scheme="https://www.netfdiary.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="RN" scheme="https://www.netfdiary.com/tags/RN/"/>
+    
+    <category term="android" scheme="https://www.netfdiary.com/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据结构（一）基本概念</title>
-    <link href="https://www.netfdiary.com/2021/09/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>https://www.netfdiary.com/2021/09/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%80%EF%BC%89/</id>
+    <link href="https://www.netfdiary.com/posts/bb4fe337.html"/>
+    <id>https://www.netfdiary.com/posts/bb4fe337.html</id>
     <published>2021-09-02T13:54:50.000Z</published>
     <updated>2021-09-02T15:44:27.478Z</updated>
     
@@ -46,8 +75,8 @@
   
   <entry>
     <title>LinkedList源码分析</title>
-    <link href="https://www.netfdiary.com/2021/08/30/LinkedList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
-    <id>https://www.netfdiary.com/2021/08/30/LinkedList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</id>
+    <link href="https://www.netfdiary.com/posts/475fb381.html"/>
+    <id>https://www.netfdiary.com/posts/475fb381.html</id>
     <published>2021-08-30T13:54:50.000Z</published>
     <updated>2021-09-02T15:48:15.709Z</updated>
     
@@ -75,8 +104,8 @@
   
   <entry>
     <title>ArrayList源码分析</title>
-    <link href="https://www.netfdiary.com/2021/08/29/ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
-    <id>https://www.netfdiary.com/2021/08/29/ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</id>
+    <link href="https://www.netfdiary.com/posts/c352a0f3.html"/>
+    <id>https://www.netfdiary.com/posts/c352a0f3.html</id>
     <published>2021-08-29T15:56:24.000Z</published>
     <updated>2021-09-02T15:47:49.649Z</updated>
     
